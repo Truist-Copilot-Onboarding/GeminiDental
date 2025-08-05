@@ -3,105 +3,687 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemini Dental - Professional Dental Care</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Gemini Dental - Your Trusted Family Dentist</title>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .hero-bg { background: linear-gradient(to bottom, #4A90E2, #2563EB); }
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #1a6fb0;
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #1a6fb0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #1a6fb0;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #0d5c9e;
+            transform: translateY(-2px);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: #1a6fb0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #1a6fb0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('/placeholder.svg?height=800&width=1600') no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background-color: #f5f9fd;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #f5f9fd;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        /* Team Section */
+        .team {
+            background-color: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid #f5f9fd;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f5f9fd;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #1a6fb0;
+        }
+        
+        /* Promotions Section */
+        .promotions {
+            background: linear-gradient(to right, #1a6fb0, #64b5f6);
+            color: white;
+        }
+        
+        .promotions h2 {
+            color: white;
+        }
+        
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .promo-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .promo-price {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .promo-card .btn {
+            background-color: white;
+            color: #1a6fb0;
+        }
+        
+        .promo-card .btn:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #1a6fb0;
+        }
+        
+        .map {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+        }
     </style>
 </head>
-<body class="bg-gray-100">
+<body>
     <!-- Header -->
-    <header class="bg-white shadow sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-blue-600">Gemini Dental</h1>
-            <ul class="flex space-x-6">
-                <li><a href="#home" class="text-gray-700 hover:text-blue-600">Home</a></li>
-                <li><a href="#services" class="text-gray-700 hover:text-blue-600">Services</a></li>
-                <li><a href="#plans" class="text-gray-700 hover:text-blue-600">Plans</a></li>
-                <li><a href="#insurance" class="text-gray-700 hover:text-blue-600">Insurance</a></li>
-                <li><a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a></li>
-            </ul>
-        </nav>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="/placeholder.svg?height=50&width=50" alt="Gemini Dental Logo">
+                <h1>Gemini Dental</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#promotions">Special Offers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-4">Welcome to Gemini Dental</h2>
-            <p class="text-lg mb-6">Your trusted dental care provider for a healthy, confident smile.</p>
-            <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-100">Book Appointment</a>
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Your Smile, Our Passion</h2>
+            <p>At Gemini Dental, we combine advanced technology with compassionate care to deliver exceptional dental services for your entire family.</p>
+            <a href="#contact" class="btn">Schedule Appointment</a>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Our Dental Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold mb-2">General Dentistry</h3>
-                    <p>Routine check-ups, cleanings, fillings, and preventive care to maintain your oral health.</p>
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p class="text-center">We offer comprehensive dental care using the latest techniques and technologies.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Preventive Dentistry">
+                    </div>
+                    <div class="service-content">
+                        <h3>Preventive Dentistry</h3>
+                        <p>Regular check-ups, cleanings, and preventive treatments to maintain your oral health and prevent future problems.</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold mb-2">Cosmetic Dentistry</h3>
-                    <p>Teeth whitening, veneers, bonding, and smile makeovers for a radiant smile.</p>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Cosmetic Dentistry">
+                    </div>
+                    <div class="service-content">
+                        <h3>Cosmetic Dentistry</h3>
+                        <p>Transform your smile with our range of cosmetic procedures including whitening, veneers, and smile makeovers.</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold mb-2">Orthodontics</h3>
-                    <p>Braces, Invisalign, and bite correction to align your teeth perfectly.</p>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Restorative Dentistry">
+                    </div>
+                    <div class="service-content">
+                        <h3>Restorative Dentistry</h3>
+                        <p>Restore damaged or missing teeth with crowns, bridges, implants, and dentures for a functional smile.</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold mb-2">Restorative Dentistry</h3>
-                    <p>Crowns, bridges, implants, and dentures to restore your smile’s function and beauty.</p>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Orthodontics">
+                    </div>
+                    <div class="service-content">
+                        <h3>Orthodontics</h3>
+                        <p>Straighten your teeth and correct bite issues with traditional braces or clear aligners for all ages.</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold mb-2">Pediatric Dentistry</h3>
-                    <p>Specialized care for kids, including sealants and fluoride treatments. <strong>Special Offer: 20% off first kids' visit!</strong></p>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Emergency Dental Care">
+                    </div>
+                    <div class="service-content">
+                        <h3>Emergency Dental Care</h3>
+                        <p>Prompt treatment for dental emergencies including toothaches, broken teeth, and other urgent dental issues.</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold mb-2">Periodontal Care</h3>
-                    <p>Gum disease treatment, scaling, and root planing for healthy gums.</p>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Children's Dentistry">
+                    </div>
+                    <div class="service-content">
+                        <h3>Children's Dentistry</h3>
+                        <p>Kid-friendly dental care in a comfortable environment to establish good oral health habits early.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Plans Section -->
-    <section id="plans" class="bg-gray-200 py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Dental Plans</h2>
-            <p class="text-center mb-6">We offer flexible dental plans to suit your needs, ensuring affordable and comprehensive care. Contact us to learn about our in-house membership plans or discuss payment options tailored for you.</p>
-            <a href="#contact" class="block text-center bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 mx-auto w-fit">Inquire About Plans</a>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Gemini Dental</h2>
+            
+            <div class="about-content">
+                <div>
+                    <p>Founded in 2005, Gemini Dental has been providing exceptional dental care to our community for over 18 years. Our state-of-the-art facility is equipped with the latest dental technology to ensure you receive the highest quality care.</p>
+                    
+                    <p>Our mission is to create a comfortable, stress-free environment where patients of all ages can receive personalized dental care. We believe in educating our patients about their oral health and involving them in treatment decisions.</p>
+                    
+                    <p>What sets us apart is our commitment to continuous education and staying at the forefront of dental advancements. Our team regularly attends professional development courses to bring you the most current and effective treatments available.</p>
+                    
+                    <p>At Gemini Dental, we don't just treat teeth – we care for people. Your comfort and satisfaction are our top priorities.</p>
+                </div>
+                
+                <div>
+                    <img src="/placeholder.svg?height=400&width=500" alt="Gemini Dental Office">
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Insurance Section -->
-    <section id="insurance" class="py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Insurance</h2>
-            <p class="text-center mb-6">We accept a wide range of dental insurance plans to make your care accessible. Our team will work with you to maximize your benefits and minimize out-of-pocket costs. Please contact our office to verify your insurance coverage.</p>
-            <a href="#contact" class="block text-center bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 mx-auto w-fit">Check Insurance Coverage</a>
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <p class="text-center">Our experienced team of dental professionals is dedicated to providing you with the best care.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="/placeholder.svg?height=200&width=200" alt="Dr. Sarah Johnson">
+                    </div>
+                    <h3>Dr. Sarah Johnson</h3>
+                    <p>Lead Dentist</p>
+                    <p>DDS, University of Michigan</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="/placeholder.svg?height=200&width=200" alt="Dr. Michael Chen">
+                    </div>
+                    <h3>Dr. Michael Chen</h3>
+                    <p>Cosmetic Specialist</p>
+                    <p>DMD, Harvard University</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="/placeholder.svg?height=200&width=200" alt="Dr. James Wilson">
+                    </div>
+                    <h3>Dr. James Wilson</h3>
+                    <p>Orthodontist</p>
+                    <p>DDS, NYU College of Dentistry</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="/placeholder.svg?height=200&width=200" alt="Lisa Martinez">
+                    </div>
+                    <h3>Lisa Martinez</h3>
+                    <p>Dental Hygienist</p>
+                    <p>RDH, 10+ Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Patients Say</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"I've been coming to Gemini Dental for years and have always received exceptional care. Dr. Johnson and her team make me feel comfortable and well-cared for during every visit."</p>
+                    </div>
+                    <div class="testimonial-author">- Robert T.</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"After years of being afraid of the dentist, I finally found Gemini Dental. Their gentle approach and patience have completely changed my perspective on dental visits."</p>
+                    </div>
+                    <div class="testimonial-author">- Maria S.</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"My entire family sees Dr. Chen, and we couldn't be happier with the care we receive. The office is modern, clean, and the staff is always friendly and professional."</p>
+                    </div>
+                    <div class="testimonial-author">- David L.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section id="promotions" class="promotions">
+        <div class="container">
+            <h2>Special Offers</h2>
+            
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <h3>New Patient Special</h3>
+                    <div class="promo-price">$99</div>
+                    <p>Comprehensive exam, full-mouth X-rays, and professional cleaning</p>
+                    <p><small>Regular price: $250</small></p>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+                
+                <div class="promo-card">
+                    <h3>Teeth Whitening</h3>
+                    <div class="promo-price">$299</div>
+                    <p>Professional in-office whitening treatment for a brighter smile</p>
+                    <p><small>Regular price: $450</small></p>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+                
+                <div class="promo-card">
+                    <h3>Invisalign® Special</h3>
+                    <div class="promo-price">$500 OFF</div>
+                    <p>Start your Invisalign treatment and save $500</p>
+                    <p><small>Free consultation included</small></p>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="bg-gray-200 py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
-            <div class="text-center">
-                <p class="text-lg mb-2"><strong>Dr. Jane Smith, DDS</strong></p>
-                <p class="text-lg mb-2">Phone: <a href="tel:+14254449805" class="text-blue-600 hover:underline">(425) 444-9805</a></p>
-                <p class="text-lg mb-6">Email: <a href="mailto:dentist@gemini-dental.com" class="text-blue-600 hover:underline">dentist@gemini-dental.com</a></p>
-                <p class="text-lg">Visit us or call to schedule your appointment today!</p>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p><strong>Address:</strong> 123 Smile Avenue, Cityville, ST 12345</p>
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@geminidental.com</p>
+                    
+                    <h3>Office Hours</h3>
+                    <p>Monday - Thursday: 8:00 AM - 5:00 PM</p>
+                    <p>Friday: 8:00 AM - 2:00 PM</p>
+                    <p>Saturday: 9:00 AM - 1:00 PM (By appointment only)</p>
+                    <p>Sunday: Closed</p>
+                    
+                    <a href="#" class="btn">Schedule Appointment</a>
+                </div>
+                
+                <div class="map">
+                    <img src="/placeholder.svg?height=400&width=600" alt="Map to Gemini Dental">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-600 text-white py-4">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Gemini Dental. All rights reserved.</p>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Gemini Dental</h3>
+                    <p>Providing quality dental care for the whole family in a comfortable and welcoming environment.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Preventive Dentistry</a></li>
+                        <li><a href="#services">Cosmetic Dentistry</a></li>
+                        <li><a href="#services">Restorative Dentistry</a></li>
+                        <li><a href="#services">Orthodontics</a></li>
+                        <li><a href="#services">Emergency Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#promotions">Special Offers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Insurance</h3>
+                    <p>We accept most major dental insurance plans. Contact our office to verify your coverage.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Gemini Dental. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 </body>
